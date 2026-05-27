@@ -1,0 +1,98 @@
+:root {
+  --primary: rgb(255 210 202);
+  --surface-tint: rgb(255 180 165);
+  --on-primary: rgb(72 20 11);
+  --primary-container: rgb(204 123 108);
+  --on-primary-container: rgb(0 0 0);
+  --secondary: rgb(254 210 202);
+  --on-secondary: rgb(56 31 26);
+  --secondary-container: rgb(174 136 129);
+  --on-secondary-container: rgb(0 0 0);
+  --tertiary: rgb(243 218 160);
+  --on-tertiary: rgb(49 36 0);
+  --tertiary-container: rgb(164 143 91);
+  --on-tertiary-container: rgb(0 0 0);
+  --error: rgb(255 210 204);
+  --on-error: rgb(84 0 3);
+  --error-container: rgb(255 84 73);
+  --on-error-container: rgb(0 0 0);
+  --background: rgb(26 17 16);
+  --on-background: rgb(241 223 219);
+  --surface: rgb(26 17 16);
+  --on-surface: rgb(255 255 255);
+  --surface-variant: rgb(83 67 64);
+  --on-surface-variant: rgb(238 215 211);
+  --outline: rgb(194 173 169);
+  --outline-variant: rgb(160 140 136);
+  --shadow: rgb(0 0 0);
+  --scrim: rgb(0 0 0);
+  --inverse-surface: rgb(241 223 219);
+  --inverse-on-surface: rgb(50 40 38);
+  --inverse-primary: rgb(116 53 41);
+  --primary-fixed: rgb(255 218 211);
+  --on-primary-fixed: rgb(43 2 0);
+  --primary-fixed-dim: rgb(255 180 165);
+  --on-primary-fixed-variant: rgb(94 36 25);
+  --secondary-fixed: rgb(255 218 211);
+  --on-secondary-fixed: rgb(32 11 7);
+  --secondary-fixed-dim: rgb(231 189 181);
+  --on-secondary-fixed-variant: rgb(75 47 42);
+  --tertiary-fixed: rgb(249 224 166);
+  --on-tertiary-fixed: rgb(24 16 0);
+  --tertiary-fixed-dim: rgb(220 196 140);
+  --on-tertiary-fixed-variant: rgb(67 52 9);
+  --surface-dim: rgb(26 17 16);
+  --surface-bright: rgb(78 66 64);
+  --surface-container-lowest: rgb(13 6 5);
+  --surface-container-low: rgb(37 27 26);
+  --surface-container: rgb(48 38 36);
+  --surface-container-high: rgb(59 48 46);
+  --surface-container-highest: rgb(70 59 57);
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    margin: 0;
+}
+
+.top-bar {
+    height: 10vh;
+    background-color: var(--surface-container-low);
+    color: var(--on-surface);
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.main-content {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15vw, 1fr));
+    border-radius: 0.5rem;
+}
+
+.card {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 1 / 1;
+}
+
+.footer {
+    height: 7vh;
+    background-color: var(--surface-container-low);
+    color: var(--on-surface);
+    border-radius: 0.5rem 0.5rem 0 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
