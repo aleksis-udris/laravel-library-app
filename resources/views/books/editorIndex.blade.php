@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <title>Document</title>
 </head>
-<body>
+<body class="carded-view">
     <style>
         .material-symbols-rounded {
         font-variation-settings:
@@ -28,9 +28,24 @@
     
     <!-- MAIN CONTENT -->
     <div class="main-content">
+        <div class="create-card">
+            <a href="{{ route('books.create') }}">Create New Book</a>
+        </div>
         @foreach ($books as $book)
             <div class="card">
-                <h2>{{ $book->title }}</h2>
+                <div class="details">
+                    <h2>{{ $book->title }}</h2>
+                    <h3>Available Copies: {{ $book->available_copies }}</h3>
+                </div>
+                <div class="actions">
+                    <a href="{{ route('books.show', ['id' =>$book->id, 'origin' => 'editor']) }}">View Details</a>
+                    <a href="{{ route('books.edit', $book->id) }}">Edit</a>
+                    <form action="{{ route('books.destroy', $book->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
             </div>
         @endforeach
     </div>

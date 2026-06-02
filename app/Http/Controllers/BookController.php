@@ -7,10 +7,16 @@ use \App\Models\Book;
 
 class BookController extends Controller
 {
-    public function index()
+    public function publicIndex()
     {
         $books = Book::all();
-        return view('books.index', compact('books'));
+        return view('books.publicIndex', compact('books'));
+    }
+
+    public function editorIndex()
+    {
+        $books = Book::all();
+        return view('books.editorIndex', compact('books'));
     }
 
     public function create()
@@ -28,16 +34,16 @@ class BookController extends Controller
 
         $book = Book::create($validated);
 
-        return redirect()->route('books.index')->with('success', 'Book created successfully');
+        return redirect()->route('books.editorIndex')->with('success', 'Book created successfully');
     }
 
-    public function show($id)
+    public function show($id, $origin)
     {
         $book = Book::find($id);
         if (!$book) {
             return response()->json(['message' => 'Book not found'], 404);
         }
-        return view('books.show', compact('book'));
+        return view('books.show', compact('book', 'origin'));
     }
 
     public function edit($id)
@@ -65,7 +71,7 @@ class BookController extends Controller
 
         $book->update($validated);
 
-        return redirect()->route('books.index')->with('success', 'Book updated successfully');
+        return redirect()->route('books.editorIndex')->with('success', 'Book updated successfully');
     }
 
     public function destroy($id)
@@ -78,6 +84,6 @@ class BookController extends Controller
 
         $book->delete();
 
-        return redirect()->route('books.index')->with('success', 'Book deleted successfully');
+        return redirect()->route('books.editorIndex')->with('success', 'Book deleted successfully');
     }
 }
